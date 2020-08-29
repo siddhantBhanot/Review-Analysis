@@ -1,44 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    
-    <!-- linking css using url_for -->
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'main.css') }}">
-
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Review Analyis</title>
+    <title>{{ title }} Sentiment Analysis</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
 <body>
-    <h2>Enter your review below</h2>
-    <form method="post">
-        <div class="form-group">
-            <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Enter your review...."  rows="3"> <textarea>
-            
-            <input type="submit" class="btn btn-dark" value="Submit">
-        </div> 
-    </form>
+    <h1>Review Analyzer</h1>
+    <form method="POST" action="{{('/')}}">
+        <textarea name="review" placeholder="Write your review...." rows="10" cols="109"></textarea><br><br>
 
+        <input class="example_a" type="submit">
+    </form>
     {% if final %}
-        <div>
-            <h2>The Sentiment of</h2> '{{ review }}' <h2>is {{ final }}% positive !</h2>
-    {% else %}
+    <div>
+        <h2>The Sentiment of</h2> '{{ review }}' <h2>is {{ final }}% positive !</h2>
+        {% else %}
         <p></p>
-    {% endif %}
-        </div>
-  
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+        {% endif %}
+    </div>
 </body>
+
 </html>

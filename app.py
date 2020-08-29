@@ -2,6 +2,7 @@ from flask import Flask, request, render_template, url_for
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
+import nltk
 from nltk.corpus import stopwords
 
 nltk.download('stopwords')
@@ -28,4 +29,4 @@ def home_post():
     return render_template('home.html', final=compound, review=review)
 
 if __name__ == "__main__":
-    app.run(debug=True, host="127.0.0.1", port=5002, threaded=True)
+    app.run(debug=True)
