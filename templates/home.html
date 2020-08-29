@@ -7,13 +7,33 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    
+    <!-- linking css using url_for -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'main.css') }}">
 
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Review Analyis</title>
 </head>
+
 <body>
+    <h2>Enter your review below</h2>
+    <form method="post">
+        <div class="form-group">
+            <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Enter your review...."  rows="3"> <textarea>
+            
+            <input type="submit" class="btn btn-dark" value="Submit">
+        </div> 
+    </form>
+
+    {% if final %}
+        <div>
+            <h2>The Sentiment of</h2> '{{ review }}' <h2>is {{ final }}% positive !</h2>
+    {% else %}
+        <p></p>
+    {% endif %}
+        </div>
   
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
